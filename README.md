@@ -2,7 +2,7 @@
 
 Sito statico del progetto **Crescere insieme**.
 
-Tema: educazione, bambine e liberta. Piccole idee per crescere figlie intere: cura, coraggio, logica, movimento, autonomia.
+Tema: educazione, bambini e liberta. Piccole idee per crescere figli e figlie con cura, coraggio, logica, movimento e autonomia.
 
 Firma editoriale: **Un papa che sta imparando**.
 
@@ -19,4 +19,3 @@ Firma editoriale: **Un papa che sta imparando**.
 ## Pubblicazione
 
 Il sito e statico e puo essere pubblicato con GitHub Pages dalla branch `main`, cartella root.
-
