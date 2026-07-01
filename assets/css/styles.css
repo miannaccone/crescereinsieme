@@ -240,6 +240,18 @@ a {
   text-decoration: none;
 }
 
+.topic-card span {
+  color: var(--green);
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 800;
+  margin-top: 18px;
+}
+
+.topic-card span::after {
+  content: " ->";
+}
+
 .topic-card h3,
 .article-preview h2,
 .source-list h2,
