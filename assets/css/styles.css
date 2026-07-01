@@ -612,7 +612,7 @@ blockquote {
 /* ---------- Text-to-speech player ---------- */
 
 .tts-player {
-  margin: 0 0 28px;
+  margin: 0 0 24px;
 }
 
 .tts-toggle {
