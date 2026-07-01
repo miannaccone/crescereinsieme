@@ -6,11 +6,16 @@
     <title>Manifesto - Crescere insieme</title>
     <meta name="description" content="Il manifesto di Crescere insieme: una bambina tutta intera.">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <script src="assets/js/menu.js" defer></script>
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="index.html">Crescere insieme</a>
-      <nav class="nav" aria-label="Navigazione principale">
+      <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false">
+        <span class="nav-toggle-icon" aria-hidden="true"></span>
+        <span>Menu</span>
+      </button>
+      <nav class="nav" id="site-nav" aria-label="Navigazione principale">
         <a href="index.html">Home</a>
         <a href="manifesto.html" aria-current="page">Manifesto</a>
         <a href="articoli.html">Articoli</a>
