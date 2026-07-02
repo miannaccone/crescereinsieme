@@ -10,10 +10,17 @@
   const list = document.querySelector("[data-search-list]");
   const emptyState = document.querySelector("[data-search-empty]");
   const articles = list ? Array.from(list.querySelectorAll(".article-preview")) : [];
+  const revealButton = document.createElement("button");
 
   if (!input || !list || !articles.length) {
     return;
   }
+
+  revealButton.className = "button";
+  revealButton.type = "submit";
+  revealButton.textContent = "Mostra risultati";
+  revealButton.hidden = true;
+  clearButton?.before(revealButton);
 
   const normalize = (value) =>
     value
@@ -44,13 +51,29 @@
     if (!query) {
       status.textContent = "Mostro tutti gli articoli.";
     } else if (visible === 1) {
-      status.textContent = "1 articolo trovato.";
+      status.textContent = "1 articolo trovato. Premi Mostra risultati per leggerlo.";
+    } else if (visible === 0) {
+      status.textContent = "Nessun articolo trovato.";
     } else {
-      status.textContent = `${visible} articoli trovati.`;
+      status.textContent = `${visible} articoli trovati. Premi Mostra risultati per vederli.`;
     }
   };
 
-  const applySearch = () => {
+  const revealResults = () => {
+    const firstVisible = entries.find(({ article }) => !article.hidden)?.article;
+    const target = firstVisible || emptyState || list;
+
+    target.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+
+    if (firstVisible) {
+      firstVisible.focus({ preventScroll: true });
+    }
+  };
+
+  const applySearch = ({ reveal = false } = {}) => {
     const query = normalize(input.value);
     const terms = query ? query.split(" ") : [];
     let visible = 0;
@@ -71,7 +94,12 @@
       clearButton.hidden = !query;
     }
 
+    revealButton.hidden = !query || visible === 0;
     updateStatus(visible, query);
+
+    if (reveal) {
+      revealResults();
+    }
   };
 
   const params = new URLSearchParams(window.location.search);
@@ -92,7 +120,7 @@
 
   root.querySelector("[data-search-form]")?.addEventListener("submit", (event) => {
     event.preventDefault();
-    applySearch();
+    applySearch({ reveal: true });
   });
 
   applySearch();
