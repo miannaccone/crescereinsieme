@@ -53,6 +53,29 @@
     return chunks;
   };
 
+  const getArchiveLinks = async (player) => {
+    const source = player.dataset.ttsSource;
+    let root = document;
+    let baseUrl = window.location.href;
+
+    if (source) {
+      const archiveUrl = new URL(source, window.location.href);
+      const response = await fetch(archiveUrl.href);
+      if (!response.ok) {
+        return [];
+      }
+      const html = await response.text();
+      root = new DOMParser().parseFromString(html, "text/html");
+      baseUrl = archiveUrl.href;
+    }
+
+    return Array.from(root.querySelectorAll(".article-category .article-list .article-preview[href^='articoli/']"))
+      .map((link) => ({
+        href: new URL(link.getAttribute("href"), baseUrl).href,
+        title: cleanText(link.querySelector("h2")?.textContent || link.textContent)
+      }));
+  };
+
   const createReader = (config) => {
     const player = config.player;
     const toggleBtn = player.querySelector("[data-tts-toggle]");
@@ -196,7 +219,7 @@
       loadingStatus: "Carico gli articoli in ordine dal più recente.",
       doneLabel: "Lettura completata.",
       getQueue: async () => {
-        const links = Array.from(document.querySelectorAll(".article-category .article-list .article-preview[href^='articoli/']"));
+        const links = await getArchiveLinks(archivePlayer);
         const parser = new DOMParser();
         const queue = [];
 
@@ -212,7 +235,7 @@
           if (!fetchedArticle) {
             continue;
           }
-          const title = cleanText(fetchedArticle.querySelector("h1")?.textContent || link.textContent);
+          const title = cleanText(fetchedArticle.querySelector("h1")?.textContent || link.title);
           const text = collectArticleText(fetchedArticle, { includeSources: false });
           splitIntoChunks(text).forEach((chunk) => {
             queue.push({
