@@ -72,6 +72,10 @@ h1, h2, h3 {
   width: 1px;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 /* ---------- Sidebar ---------- */
 
 .site-header {
