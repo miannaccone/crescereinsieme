@@ -624,7 +624,7 @@ blockquote {
 }
 
 .tts-home {
-  margin-top: 18px;
+  margin: 0;
 }
 
 .tts-toggle {
@@ -649,6 +649,22 @@ blockquote {
   border-color: var(--green);
   outline: none;
   transform: translateY(-1px);
+}
+
+.tts-home .tts-toggle {
+  background: #fff;
+  border-color: var(--line-strong);
+  font-size: 15.5px;
+  font-weight: 600;
+  padding: 14px 24px 14px 14px;
+}
+
+.tts-home .tts-toggle:hover,
+.tts-home .tts-toggle:focus-visible {
+  background: #fff;
+  border-color: var(--green);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-2px);
 }
 
 .tts-icon {
