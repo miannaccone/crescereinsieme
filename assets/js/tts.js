@@ -216,7 +216,7 @@
       player: archivePlayer,
       idleLabel: "Leggi tutti gli articoli",
       loadingLabel: "Preparo gli articoli",
-      loadingStatus: "Carico gli articoli in ordine dal più recente.",
+      loadingStatus: "Carico gli articoli nel percorso di lettura.",
       doneLabel: "Lettura completata.",
       getQueue: async () => {
         const links = await getArchiveLinks(archivePlayer);
