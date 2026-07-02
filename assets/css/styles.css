@@ -62,6 +62,16 @@ h1, h2, h3 {
   background: rgba(47, 125, 120, 0.18);
 }
 
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
 /* ---------- Sidebar ---------- */
 
 .site-header {
@@ -522,6 +532,54 @@ blockquote {
 
 .article-category {
   margin-top: 44px;
+}
+
+.search-panel {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  margin: 30px 0 12px;
+  max-width: 860px;
+  padding: 24px;
+}
+
+.search-panel h2 {
+  color: var(--green-dark);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 0 0 18px;
+}
+
+.search-form {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+}
+
+.search-form input {
+  background: #fff;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  color: var(--ink);
+  flex: 1;
+  font: inherit;
+  min-height: 52px;
+  min-width: 0;
+  padding: 0 20px;
+}
+
+.search-form input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 4px rgba(47, 125, 120, 0.12);
+  outline: none;
+}
+
+.search-status {
+  color: var(--muted);
+  font-size: 15px;
+  margin: 14px 0 0;
 }
 
 .section-heading.compact {
@@ -1006,6 +1064,15 @@ a.tag:focus-visible {
 
   .category-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .search-form {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .search-form .button {
+    justify-content: center;
   }
 }
 

@@ -14,6 +14,7 @@
     <meta property="og:description" content="Articoli su educazione, bambini, autonomia, corpo, giochi, parole e stereotipi.">
     <link rel="stylesheet" href="assets/css/styles.css">
     <script src="assets/js/menu.js" defer></script>
+    <script src="assets/js/search.js" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -51,12 +52,25 @@
         <a href="percorso.html">Percorso di lettura</a>
       </div>
 
+      <section class="search-panel" id="cerca" data-search>
+        <div>
+          <p class="eyebrow">Cerca</p>
+          <h2>Trova un articolo</h2>
+        </div>
+        <form class="search-form" role="search" aria-label="Cerca negli articoli" data-search-form>
+          <label class="visually-hidden" for="article-search">Cerca per titolo, tema o parola chiave</label>
+          <input id="article-search" type="search" name="q" placeholder="Cerca: schermi, rabbia, STEM, corpo..." autocomplete="off" data-search-input>
+          <button class="button secondary" type="button" data-search-clear hidden>Cancella</button>
+        </form>
+        <p class="search-status" aria-live="polite" data-search-status>Mostro tutti gli articoli.</p>
+      </section>
+
       <section class="article-category">
         <div class="section-heading compact">
           <p class="eyebrow">Tutti gli articoli</p>
           <h2>Dal più recente</h2>
         </div>
-        <div class="article-list">
+        <div class="article-list" data-search-list>
           <a class="article-preview" href="articoli/trappola-complimenti-lode-incoraggiamento.html">
             <span>Parole · 2 luglio 2026</span>
             <h2>La trappola dei complimenti</h2>
@@ -417,6 +431,10 @@
             <h2>Una bambina tutta intera</h2>
             <p>Uno sguardo specifico sulle bambine: bellezza, protezione, coraggio, tecnica, cura e autonomia.</p>
           </a>
+          <div class="empty-state" data-search-empty hidden>
+            <p>Nessun articolo trovato.</p>
+            <p>Prova con parole più generali, per esempio "corpo", "schermi", "rabbia", "giochi", "STEM" o "autonomia".</p>
+          </div>
         </div>
       </section>
 
