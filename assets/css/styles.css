@@ -615,6 +615,14 @@ blockquote {
   margin: 0 0 24px;
 }
 
+.tts-archive {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 12px;
+  margin-bottom: 18px;
+}
+
 .tts-toggle {
   align-items: center;
   background: var(--green-soft);
@@ -650,6 +658,32 @@ blockquote {
   height: 28px;
   justify-content: center;
   width: 28px;
+}
+
+.tts-stop {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--muted);
+  cursor: pointer;
+  font-family: var(--body);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 16px;
+}
+
+.tts-stop:hover,
+.tts-stop:focus-visible {
+  border-color: var(--coral);
+  color: var(--green-dark);
+  outline: none;
+}
+
+.tts-status {
+  color: var(--muted);
+  flex-basis: 100%;
+  font-size: 14px;
+  margin: 0;
 }
 
 .callout {
