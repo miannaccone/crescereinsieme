@@ -11,6 +11,10 @@
   const emptyState = document.querySelector("[data-search-empty]");
   const articles = list ? Array.from(list.querySelectorAll(".article-preview")) : [];
   const revealButton = document.createElement("button");
+  const resultsSection = list ? list.closest(".article-category") : null;
+  const otherCategories = Array.from(document.querySelectorAll(".article-category")).filter(
+    (category) => !category.querySelector("[data-search-list]")
+  );
 
   if (!input || !list || !articles.length) {
     return;
@@ -36,10 +40,11 @@
     const description = article.querySelector("p")?.textContent || "";
     const href = article.getAttribute("href") || "";
     const slugWords = href.replace(/^articoli\//, "").replace(/[-.]/g, " ");
+    const keywords = article.getAttribute("data-keywords") || "";
 
     return {
       article,
-      haystack: normalize(`${title} ${meta} ${description} ${slugWords}`)
+      haystack: normalize(`${title} ${meta} ${description} ${slugWords} ${keywords}`)
     };
   });
 
@@ -61,7 +66,7 @@
 
   const revealResults = () => {
     const firstVisible = entries.find(({ article }) => !article.hidden)?.article;
-    const target = firstVisible || emptyState || list;
+    const target = resultsSection || list;
 
     target.scrollIntoView({
       behavior: "smooth",
@@ -84,6 +89,10 @@
       if (matches) {
         visible += 1;
       }
+    });
+
+    otherCategories.forEach((category) => {
+      category.hidden = !!query;
     });
 
     if (emptyState) {
