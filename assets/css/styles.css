@@ -1,22 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..800;1,9..144,400..600&family=Inter:wght@400..700&display=swap");
 
 :root {
-  --ink: #22302f;
-  --muted: #5f7275;
+  --ink: #222b36;
+  --muted: #5f6b7a;
   --paper: #ffffff;
-  --soft: #f4f7f5;
-  --line: #e2ebe7;
-  --line-strong: #cdddd7;
-  --green: #2f7d78;
-  --green-dark: #1c4f4d;
-  --green-soft: #eef8f5;
+  --soft: #f2f4f7;
+  --line: #e2e8ef;
+  --line-strong: #c9d7e6;
+  --green: #3b6ea5;
+  --green-dark: #1e3a5f;
+  --green-soft: #edf3fa;
   --coral: #e2725b;
   --coral-soft: #fbeee9;
   --warm: #fffcf5;
   --warm-line: #ecdfc6;
-  --shadow-sm: 0 1px 2px rgba(28, 79, 77, 0.05), 0 2px 8px rgba(28, 79, 77, 0.04);
-  --shadow-md: 0 8px 24px rgba(28, 79, 77, 0.09);
-  --shadow-lg: 0 18px 44px rgba(28, 79, 77, 0.14);
+  --shadow-sm: 0 1px 2px rgba(30, 58, 95, 0.05), 0 2px 8px rgba(30, 58, 95, 0.04);
+  --shadow-md: 0 8px 24px rgba(30, 58, 95, 0.09);
+  --shadow-lg: 0 18px 44px rgba(30, 58, 95, 0.14);
   --radius: 16px;
   --radius-sm: 12px;
   --sidebar: 268px;
@@ -59,7 +59,7 @@ h1, h2, h3 {
 }
 
 ::selection {
-  background: rgba(47, 125, 120, 0.18);
+  background: rgba(59, 110, 165, 0.18);
 }
 
 .visually-hidden {
@@ -212,7 +212,7 @@ h1, h2, h3 {
 }
 
 .lead {
-  color: #3a4c4e;
+  color: #3b4a5c;
   font-size: clamp(18px, 2.4vw, 21px);
   line-height: 1.62;
   margin: 0;
@@ -287,7 +287,7 @@ h1, h2, h3 {
 
 .hero-panel {
   align-self: center;
-  background: linear-gradient(160deg, var(--green-dark) 0%, #16403f 100%);
+  background: linear-gradient(160deg, var(--green-dark) 0%, #152c47 100%);
   border-radius: var(--radius);
   box-shadow: var(--shadow-lg);
   color: #fff;
@@ -456,7 +456,7 @@ h1, h2, h3 {
 }
 
 .rich-text {
-  color: #3a4c4e;
+  color: #3b4a5c;
   font-size: 19px;
   line-height: 1.78;
 }
@@ -574,7 +574,7 @@ blockquote {
 
 .search-form input:focus {
   border-color: var(--green);
-  box-shadow: 0 0 0 4px rgba(47, 125, 120, 0.12);
+  box-shadow: 0 0 0 4px rgba(59, 110, 165, 0.12);
   outline: none;
 }
 
@@ -652,7 +652,7 @@ blockquote {
 }
 
 .article p {
-  color: #35474a;
+  color: #33424f;
   font-size: 19px;
   line-height: 1.8;
 }
@@ -798,7 +798,7 @@ blockquote {
 .source-note a {
   color: var(--green);
   font-weight: 700;
-  text-decoration-color: rgba(47, 125, 120, 0.35);
+  text-decoration-color: rgba(59, 110, 165, 0.35);
   text-underline-offset: 3px;
 }
 
@@ -920,7 +920,7 @@ a.tag:focus-visible {
 .related-articles a {
   color: var(--green-dark);
   font-weight: 700;
-  text-decoration-color: rgba(47, 125, 120, 0.35);
+  text-decoration-color: rgba(59, 110, 165, 0.35);
   text-underline-offset: 3px;
 }
 
@@ -1058,7 +1058,7 @@ a.tag:focus-visible {
   }
 
   .nav-toggle:focus-visible {
-    box-shadow: 0 0 0 3px rgba(47, 125, 120, 0.28);
+    box-shadow: 0 0 0 3px rgba(59, 110, 165, 0.28);
     outline: none;
   }
 
