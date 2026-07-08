@@ -447,15 +447,6 @@ Questa e' una base importante: molto prima di contare, il bambino incontra l'ide
 
 Conta l'interazione. Lo stesso bicchiere puo' diventare misura, contenitore, suono, torre, nascondiglio, pieno, vuoto. Un giocattolo "educativo" usato da solo vale meno di un oggetto semplice esplorato con un adulto che osserva, nomina, aspetta e rilancia.
 
-## Una proposta di tono per il futuro articolo
-
-Questo articolo dovrebbe evitare due estremi:
-
-1. "I neonati sono piccoli geni matematici da allenare subito."
-2. "La matematica arriva solo a scuola."
-
-La posizione piu' corretta e': il bambino ha predisposizioni precoci per quantita', spazio e regolarita', ma queste predisposizioni maturano dentro esperienze corporee, linguistiche e relazionali. Il compito del genitore non e' anticipare la scuola, ma rendere matematica la vita quotidiana senza farla diventare una prestazione.
-
 ## Cosa e' dimostrato, probabile, dibattuto
 
 ### Abbastanza dimostrato
@@ -492,14 +483,6 @@ Ogni giorno puoi offrire:
 - confronto: questo entra, questo non entra; questo e' grande, questo e' piccolo
 
 La matematica, nei primi mesi, non e' sul foglio. E' nel cucchiaio che entra nella ciotola, nella torre che cade, nella palla che rotola lontano, nel calzino che va su un piede, nella voce che dice "ancora" e poi aspetta.
-
-## Titoli possibili
-
-- La matematica comincia prima dei numeri
-- Matematica nei primi mesi: corpo, spazio, ritmo e quantita'
-- Prima di contare: le basi matematiche nel primo anno
-- La matematica sul tappeto
-- Non schede, ma cucchiai, cubi e parole precise
 
 ## Bibliografia e fonti
 
