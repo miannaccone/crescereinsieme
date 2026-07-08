@@ -412,11 +412,11 @@ L'ambizione giusta non e' accelerare.
 
 L'ambizione giusta e' costruire familiarita': far sentire che quantita', spazio, ritmo e logica fanno parte del mondo, e che esplorarli e' piacevole.
 
-## Box finale da pubblicare eventualmente nell'articolo
+## Avvertenza finale
 
 Queste proposte non sono un programma terapeutico, non sono una diagnosi, non sono un metodo per anticipare la scuola e non garantiscono risultati futuri. Sono idee di gioco consapevole per genitori che vogliono offrire esperienze ricche, rispettando tempi, segnali e sicurezza del bambino. In caso di dubbi sullo sviluppo motorio, visivo, uditivo o relazionale, e' sempre meglio parlarne con il pediatra o con un professionista qualificato.
 
-## Fonti da citare
+## Fonti
 
 - Ariel Starr, Melissa E. Libertus, Elizabeth M. Brannon, "Number sense in infancy predicts mathematical abilities in childhood", PNAS, 2013.
 - Fei Xu, Elizabeth S. Spelke, "Large number discrimination in 6-month-old infants", Cognition, 2000.

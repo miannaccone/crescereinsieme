@@ -200,7 +200,7 @@ Un bambino che gattona verso un oggetto sta lavorando sulla distanza. Un bambino
 
 La matematica del primo anno non chiede di stare seduti composti. Chiede spazio, oggetti, tempo, tentativi e adulti capaci di nominare senza controllare troppo.
 
-## Fonti da citare
+## Fonti
 
 - Shannon M. Pruden, Susan C. Levine, Janellen Huttenlocher, "Children's spatial thinking: does talk about the spatial world matter?", Developmental Science, 2011.
 - Nora S. Newcombe, Andrea Frick, "Early Education for Spatial Intelligence: Why, What, and How", Mind, Brain, and Education, 2010.

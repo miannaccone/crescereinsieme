@@ -275,7 +275,7 @@ La frase guida potrebbe essere:
 
 "Parla al bambino del mondo come se il mondo avesse ordine, forme, quantita' e relazioni. Perche' le ha."
 
-## Fonti da citare
+## Fonti
 
 - Susan C. Levine et al., "What counts in the development of young children's number knowledge?", Developmental Psychology, 2010.
 - Shannon M. Pruden, Susan C. Levine, Janellen Huttenlocher, "Children's spatial thinking: does talk about the spatial world matter?", Developmental Science, 2011.

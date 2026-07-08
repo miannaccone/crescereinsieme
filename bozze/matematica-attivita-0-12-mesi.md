@@ -412,7 +412,7 @@ Le attivita' matematiche del primo anno sono esperienze di mondo:
 
 Il genitore non deve diventare insegnante. Deve diventare un buon narratore dell'esperienza.
 
-## Fonti da citare
+## Fonti
 
 - DREME, Stanford University, risorse Family Math.
 - NAEYC, "Math Talk with Infants and Toddlers".

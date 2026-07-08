@@ -142,7 +142,7 @@ Accorgersi che una scatola che si svuota e' gia' quantita'.
 Accorgersi che "sopra", "sotto", "dentro", "fuori" sono gia' geometria.
 Accorgersi che la matematica, prima di essere scritta, viene vissuta.
 
-## Fonti da citare
+## Fonti
 
 - Fei Xu, Elizabeth S. Spelke, "Large number discrimination in 6-month-old infants", Cognition, 2000.
 - Lisa Feigenson, Stanislas Dehaene, Elizabeth Spelke, "Core systems of number", Trends in Cognitive Sciences, 2004.
