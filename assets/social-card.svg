@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1e3a5f"/>
+      <stop offset="1" stop-color="#152c47"/>
+    </linearGradient>
+    <linearGradient id="mark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b6ea5"/>
+      <stop offset="1" stop-color="#e2725b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#background)"/>
+  <circle cx="1080" cy="80" r="245" fill="#e2725b" opacity="0.12"/>
+  <circle cx="85" cy="600" r="260" fill="#3b6ea5" opacity="0.2"/>
+  <rect x="92" y="88" width="74" height="74" rx="20" fill="url(#mark)"/>
+  <path d="M129 142v-24" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+  <path d="M129 121c-3-9-11-12-18-12 0 10 7 15 18 15z" fill="#fff"/>
+  <path d="M129 116c3-8 10-11 17-11 0 9-7 14-17 14z" fill="#fff" opacity="0.86"/>
+  <text x="188" y="139" fill="#fff" font-family="Georgia, serif" font-size="42" font-weight="700">Crescere insieme</text>
+  <text x="92" y="310" fill="#fff" font-family="Georgia, serif" font-size="78" font-weight="600">Educare senza</text>
+  <text x="92" y="397" fill="#fff" font-family="Georgia, serif" font-size="78" font-weight="600">restringere.</text>
+  <text x="96" y="490" fill="#dce7f3" font-family="Arial, sans-serif" font-size="30">Ricerca, vita quotidiana e piccoli gesti per crescere insieme.</text>
+  <text x="96" y="548" fill="#f4c0b5" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="2">UN PAPÀ CHE STA IMPARANDO</text>
+</svg>

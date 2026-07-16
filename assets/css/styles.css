@@ -469,6 +469,89 @@ h1, h2, h3 {
   margin: 0 0 20px;
 }
 
+.page-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.info-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin: 34px 0;
+  max-width: 860px;
+}
+
+.info-card,
+.newsletter-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 26px;
+}
+
+.info-card h2,
+.newsletter-card h2 {
+  color: var(--green-dark);
+  font-size: 24px;
+  margin: 0 0 10px;
+}
+
+.info-card p,
+.newsletter-card p {
+  color: var(--muted);
+  margin: 0;
+}
+
+.newsletter-layout {
+  align-items: start;
+  display: grid;
+  gap: 28px;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.72fr);
+  margin-top: 34px;
+  max-width: 980px;
+}
+
+.newsletter-card.featured {
+  background: var(--green-dark);
+  border-color: var(--green-dark);
+  color: #fff;
+}
+
+.newsletter-card.featured h2,
+.newsletter-card.featured p {
+  color: #fff;
+}
+
+.newsletter-list {
+  color: #3b4a5c;
+  margin: 20px 0 0;
+  padding-left: 22px;
+}
+
+.newsletter-list li {
+  margin: 10px 0;
+}
+
+.signup-status {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--radius-sm);
+  font-size: 15px;
+  line-height: 1.6;
+  margin-top: 22px !important;
+  padding: 16px 18px;
+}
+
+.legal-meta {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
 /* ---------- Blockquote ---------- */
 
 blockquote {
@@ -667,6 +750,13 @@ blockquote {
   font-size: 14px;
   letter-spacing: 0.02em;
   margin-bottom: 8px;
+}
+
+.article-dates {
+  color: var(--muted) !important;
+  font-size: 13.5px !important;
+  line-height: 1.5 !important;
+  margin: 0 0 28px !important;
 }
 
 /* ---------- Text-to-speech player ---------- */
@@ -1126,8 +1216,13 @@ a.tag:focus-visible {
   }
 
   .hero,
-  .split {
+  .split,
+  .newsletter-layout {
     display: block;
+  }
+
+  .newsletter-card + .newsletter-card {
+    margin-top: 18px;
   }
 
   .hero-panel {
@@ -1170,6 +1265,10 @@ a.tag:focus-visible {
   }
 
   .category-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .info-grid {
     grid-template-columns: 1fr;
   }
 }
