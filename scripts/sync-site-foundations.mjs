@@ -10,7 +10,7 @@ function walk(dir) {
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
     const path = resolve(dir, entry.name);
     if (entry.isDirectory()) {
-      if ([".git", "bozze", "scripts"].includes(entry.name)) return [];
+      if ([".git", "bozze", "newsletter-templates", "scripts"].includes(entry.name)) return [];
       return walk(path);
     }
     return entry.name.endsWith(".html") ? [path] : [];
@@ -29,6 +29,38 @@ function gitDates(relPath) {
   } catch {
     return { published: TODAY, modified: TODAY };
   }
+}
+
+function headVersion(relPath) {
+  try {
+    return execFileSync("git", ["show", `HEAD:${relPath}`], { cwd: ROOT, encoding: "utf8" });
+  } catch {
+    return "";
+  }
+}
+
+function metadataDate(html, property) {
+  return html.match(new RegExp(`<meta property="${property}" content="([^"]+)">`))?.[1] || "";
+}
+
+function articleContent(html) {
+  return (html.match(/<article class="article">([\s\S]*?)<\/article>/)?.[1] || "")
+    .replace(/\s*<p class="article-dates">[\s\S]*?<\/p>/g, "")
+    .trim();
+}
+
+function mainContent(html) {
+  return (html.match(/<main(?:\s[^>]*)?>([\s\S]*?)<\/main>/)?.[1] || "")
+    .replace(/\s*<p class="article-dates">[\s\S]*?<\/p>/g, "")
+    .trim();
+}
+
+function sitemapLastmods(xml) {
+  const values = new Map();
+  for (const match of xml.matchAll(/<url>\s*<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>\s*<\/url>/g)) {
+    values.set(match[1], match[2]);
+  }
+  return values;
 }
 
 function decodeEntities(value) {
@@ -176,7 +208,20 @@ function articleSchema({ canonical, description, modified, published, section, t
 }
 
 function updateArticle(html, relPath) {
-  const dates = gitDates(relPath);
+  const historyDates = gitDates(relPath);
+  const committedHtml = headVersion(relPath);
+  const contentChanged = committedHtml && articleContent(html) !== articleContent(committedHtml);
+  const dates = {
+    published:
+      metadataDate(committedHtml, "article:published_time") ||
+      metadataDate(html, "article:published_time") ||
+      historyDates.published,
+    modified: contentChanged
+      ? TODAY
+      : metadataDate(committedHtml, "article:modified_time") ||
+        metadataDate(html, "article:modified_time") ||
+        historyDates.modified,
+  };
   const canonical = match(html, /<link rel="canonical" href="([^"]+)">/);
   const title = match(html, /<meta property="og:title" content="([^"]+)">/, match(html, /<h1>([\s\S]*?)<\/h1>/));
   const description = match(html, /<meta name="description" content="([^"]+)">/);
@@ -230,7 +275,10 @@ for (const file of files) {
 
 const publicFiles = files
   .map((file) => relative(ROOT, file).replaceAll("\\", "/"))
-  .filter((path) => !path.startsWith("bozze/"))
+  .filter((path) => {
+    const html = readFileSync(resolve(ROOT, path), "utf8");
+    return !/<meta name="robots" content="[^"]*noindex/i.test(html);
+  })
   .sort((a, b) => {
     const priority = ["index.html", "manifesto.html", "chi-sono.html", "articoli.html", "percorso.html", "newsletter.html", "fonti.html", "contatti.html", "privacy.html"];
     const ai = priority.indexOf(a);
@@ -239,12 +287,19 @@ const publicFiles = files
     return a.localeCompare(b, "it");
   });
 
+const committedLastmods = sitemapLastmods(headVersion("sitemap.xml"));
+
 const sitemap = [
   '<?xml version="1.0" encoding="UTF-8"?>',
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
   ...publicFiles.flatMap((path) => {
     const loc = path === "index.html" ? "https://crescere-insieme.com/" : `https://crescere-insieme.com/${path}`;
-    const { modified } = gitDates(path);
+    const currentHtml = readFileSync(resolve(ROOT, path), "utf8");
+    const committedHtml = headVersion(path);
+    const contentChanged = !committedHtml || mainContent(currentHtml) !== mainContent(committedHtml);
+    const modified = contentChanged
+      ? TODAY
+      : committedLastmods.get(loc) || gitDates(path).modified;
     return ["  <url>", `    <loc>${loc}</loc>`, `    <lastmod>${modified}</lastmod>`, "  </url>"];
   }),
   "</urlset>",
