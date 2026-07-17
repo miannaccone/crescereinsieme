@@ -546,6 +546,21 @@ h1, h2, h3 {
   padding: 16px 18px;
 }
 
+.newsletter-form {
+  background: #ffffff;
+  border-radius: var(--radius-sm);
+  margin-top: 24px;
+  overflow: hidden;
+}
+
+.newsletter-form iframe {
+  border: 0;
+  display: block;
+  height: 520px;
+  max-width: 100%;
+  width: 100%;
+}
+
 .legal-meta {
   color: var(--muted);
   font-size: 14px;
