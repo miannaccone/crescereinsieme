@@ -561,6 +561,35 @@ h1, h2, h3 {
   width: 100%;
 }
 
+.article-newsletter-cta {
+  background: #f4f7fb;
+  border: 1px solid #d7e1ec;
+  border-left: 4px solid var(--coral);
+  border-radius: var(--radius-sm);
+  margin: 42px 0 34px;
+  padding: 26px 28px;
+}
+
+.article-newsletter-cta h2 {
+  color: var(--green-dark);
+  font-size: clamp(25px, 3vw, 34px);
+  margin: 4px 0 12px;
+}
+
+.article-newsletter-cta > p:not(.eyebrow) {
+  color: var(--muted);
+  margin: 0 0 20px;
+}
+
+.article-newsletter-cta .button {
+  margin-top: 2px;
+}
+
+.article-newsletter-cta .article-newsletter-note {
+  font-size: 13px;
+  margin: 14px 0 0;
+}
+
 .legal-meta {
   color: var(--muted);
   font-size: 14px;

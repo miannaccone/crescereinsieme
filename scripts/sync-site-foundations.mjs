@@ -46,6 +46,7 @@ function metadataDate(html, property) {
 function articleContent(html) {
   return (html.match(/<article class="article">([\s\S]*?)<\/article>/)?.[1] || "")
     .replace(/\s*<p class="article-dates">[\s\S]*?<\/p>/g, "")
+    .replace(/\s*<aside class="article-newsletter-cta"[\s\S]*?<\/aside>/g, "")
     .trim();
 }
 
@@ -207,6 +208,30 @@ function articleSchema({ canonical, description, modified, published, section, t
     .join("\n")}\n    </script>\n`;
 }
 
+function addArticleNewsletterCta(html) {
+  const cta = `
+        <aside class="article-newsletter-cta" aria-labelledby="article-newsletter-title">
+          <p class="eyebrow">Una piccola idea al giorno</p>
+          <h2 id="article-newsletter-title">Continuiamo via email.</h2>
+          <p>
+            Una scena quotidiana, un'idea fondata sulla ricerca e un piccolo gesto da provare,
+            con calma e senza ricette per genitori perfetti.
+          </p>
+          <a class="button primary" href="../newsletter.html#iscrizione">Iscriviti alla newsletter</a>
+          <p class="article-newsletter-note">Conferma a due passaggi. Puoi cancellarti in qualsiasi momento.</p>
+        </aside>`;
+
+  html = html.replace(/\s*<aside class="article-newsletter-cta"[\s\S]*?<\/aside>/g, "");
+
+  if (html.includes('<section class="related-articles"')) {
+    return html.replace(/\s*(<section class="related-articles")/, `${cta}\n\n        $1`);
+  }
+  if (html.includes('<p class="source-note"')) {
+    return html.replace(/\s*(<p class="source-note")/, `${cta}\n\n        $1`);
+  }
+  return html.replace(/\s*<\/article>/, `${cta}\n      </article>`);
+}
+
 function updateArticle(html, relPath) {
   const historyDates = gitDates(relPath);
   const committedHtml = headVersion(relPath);
@@ -249,7 +274,7 @@ function updateArticle(html, relPath) {
     `$1\n        <p class="article-dates">${visibleDate}</p>`,
   );
   html = html.replace("  </head>", `${articleSchema({ canonical, description, modified: dates.modified, published: dates.published, section, title })}  </head>`);
-  return html;
+  return addArticleNewsletterCta(html);
 }
 
 const files = walk(ROOT);
